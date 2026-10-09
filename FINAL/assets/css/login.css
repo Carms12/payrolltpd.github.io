@@ -1,0 +1,107 @@
+/* Login page - dark theme matching the admin pages (dashboard, employees, ...) */
+:root {
+    --bg: #0a0a0f;
+    --text: #e8edf5;
+    --muted: rgba(255,255,255,0.35);
+    --line: rgba(255,255,255,0.06);
+    --cyan: #00ffff;
+    --err: #ff6b6b;
+    --warn: #ffd93d;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Inter', 'Segoe UI', Arial, sans-serif; }
+html { height: 100%; }
+body {
+    min-height: 100%; background: var(--bg); color: var(--text);
+    -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+
+/* background effects (same as other pages) */
+.bg-grid {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+    background-size: 60px 60px;
+}
+.bg-glow { position: fixed; border-radius: 50%; filter: blur(120px); opacity: 0.15; z-index: 0; pointer-events: none; }
+.bg-glow-1 { width: 600px; height: 600px; top: -200px; right: -200px; background: #00ffff; }
+.bg-glow-2 { width: 400px; height: 400px; bottom: -100px; left: -100px; background: #7c3aed; }
+
+.login { position: relative; z-index: 1; min-height: 100vh; min-height: 100dvh; display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); }
+
+/* ---------- brand side ---------- */
+.brand {
+    position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; padding: 48px;
+    background: rgba(255,255,255,0.015); border-right: 1px solid rgba(255,255,255,0.04);
+}
+.brand .wave { position: absolute; inset: 0; width: 100%; height: 100%; }
+.brand .wave g { stroke: #00ffff; }
+.brand .wave circle { fill: #00ffff; }
+.brand-inner { position: relative; max-width: 420px; }
+.brand-logo { width: 104px; height: 104px; border-radius: 50%; display: block; background: #fff; object-fit: cover; border: 1px solid rgba(0,255,255,0.25); box-shadow: 0 0 0 6px rgba(0,255,255,0.06), 0 0 40px rgba(0,255,255,0.12); }
+.brand-name { margin-top: 32px; font-size: 1.7rem; line-height: 1.25; font-weight: 700; letter-spacing: -0.02em; color: #fff; }
+.brand-note { margin-top: 14px; font-size: 0.95rem; line-height: 1.6; color: var(--muted); max-width: 34ch; }
+
+/* ---------- form side ---------- */
+.panel { display: flex; align-items: center; justify-content: center; padding: 48px 32px; }
+.form-wrap {
+    width: 100%; max-width: 420px; padding: 2.25rem 2rem;
+    background: rgba(255,255,255,0.02); backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.05); border-radius: 20px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+}
+h1 { font-size: 1.5rem; font-weight: 700; color: #fff; letter-spacing: -0.02em; }
+.lead { margin-top: 6px; color: var(--muted); font-size: 0.85rem; }
+
+.alert { margin-top: 22px; padding: 0.7rem 1rem; border-radius: 10px; font-size: 0.85rem; line-height: 1.45; border: 1px solid; }
+.alert.error { background: rgba(255,107,107,0.06); border-color: rgba(255,107,107,0.12); color: var(--err); }
+.alert.notice { background: rgba(255,200,0,0.06); border-color: rgba(255,200,0,0.12); color: var(--warn); }
+
+form { margin-top: 26px; }
+.field { margin-bottom: 18px; }
+.field label { display: block; margin-bottom: 7px; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; color: rgba(255,255,255,0.3); }
+.control { position: relative; }
+.control input {
+    width: 100%; height: 46px; padding: 0 14px; font-size: 0.9rem; color: var(--text);
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 10px; outline: none;
+    transition: all .25s ease;
+}
+.control input::placeholder { color: rgba(255,255,255,0.15); }
+.control input:hover { border-color: rgba(255,255,255,0.1); }
+.control input:focus { border-color: rgba(0,255,255,0.25); background: rgba(0,255,255,0.02); box-shadow: 0 0 0 4px rgba(0,255,255,0.05); }
+.control.has-toggle input { padding-right: 70px; }
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #e8edf5; -webkit-box-shadow: 0 0 0 1000px #12121a inset; transition: background-color 5000s ease-in-out 0s;
+}
+.toggle {
+    position: absolute; top: 50%; right: 6px; transform: translateY(-50%);
+    height: 34px; padding: 0 12px; border: 0; border-radius: 8px; background: transparent;
+    font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.35); cursor: pointer; transition: all .2s ease;
+}
+.toggle:hover { background: rgba(0,255,255,0.08); color: var(--cyan); }
+.toggle:focus-visible { outline: 2px solid rgba(0,255,255,0.4); outline-offset: 1px; }
+.hint { margin-top: 7px; font-size: 0.78rem; color: var(--warn); min-height: 1.1em; }
+
+.submit {
+    width: 100%; height: 48px; margin-top: 6px; border-radius: 10px; cursor: pointer;
+    font-size: 0.9rem; font-weight: 600; color: var(--cyan);
+    background: rgba(0,255,255,0.08); border: 1px solid rgba(0,255,255,0.12);
+    transition: all .25s ease;
+}
+.submit:hover { background: rgba(0,255,255,0.15); border-color: rgba(0,255,255,0.2); transform: translateY(-1px); box-shadow: 0 4px 20px rgba(0,255,255,0.08); }
+.submit:active { transform: translateY(0); }
+.submit:focus-visible { outline: 2px solid rgba(0,255,255,0.4); outline-offset: 2px; }
+.submit:disabled { opacity: 0.5; cursor: wait; transform: none; }
+
+.fine { margin-top: 26px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.04); font-size: 0.75rem; line-height: 1.55; color: rgba(255,255,255,0.2); }
+
+/* ---------- small screens ---------- */
+@media (max-width: 860px) {
+    .login { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+    .brand { padding: 22px 24px; justify-content: flex-start; border-right: 0; border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .brand-inner { display: flex; align-items: center; gap: 16px; max-width: none; }
+    .brand-logo { width: 52px; height: 52px; box-shadow: 0 0 0 3px rgba(0,255,255,0.06); flex: none; }
+    .brand-name { margin-top: 0; font-size: 1rem; line-height: 1.3; }
+    .brand-note { display: none; }
+    .panel { align-items: flex-start; padding: 28px 16px 40px; }
+    .form-wrap { padding: 1.75rem 1.25rem; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }

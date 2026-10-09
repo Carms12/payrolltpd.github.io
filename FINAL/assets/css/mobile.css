@@ -1,0 +1,156 @@
+/* ==========================================================================
+   mobile.css - shared phone/tablet layer for every admin page.
+   Loaded AFTER each page's own stylesheet. Only applies at <= 1024px,
+   desktop layout is untouched.  Works together with assets/js/mobile.js
+   ========================================================================== */
+
+/* the top bar only exists on small screens */
+.m-topbar { display: none; }
+
+@media (max-width: 1024px) {
+    html { -webkit-text-size-adjust: 100%; }
+    body { overflow-x: hidden; }
+    body.m-lock { overflow: hidden; touch-action: none; }
+
+    /* ---------- top app bar (hamburger + page title) ---------- */
+    .m-topbar {
+        display: flex; align-items: center; gap: .75rem;
+        position: fixed; top: 0; left: 0; right: 0; height: 56px; z-index: 55;
+        padding: 0 .75rem 0 4rem;
+        background: rgba(10,10,15,.92); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+        border-bottom: 1px solid rgba(255,255,255,.05);
+    }
+    .m-topbar .m-title { font-size: .95rem; font-weight: 700; color: #fff; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; letter-spacing: -.01em; }
+    .m-topbar .m-brand { margin-left: auto; font-size: .7rem; font-weight: 700; color: rgba(255,255,255,.35); white-space: nowrap; }
+    .m-topbar .m-brand b { color: #00ffff; font-weight: 700; }
+
+    .mobile-toggle {
+        display: flex !important; align-items: center; justify-content: center;
+        top: 8px !important; left: .75rem !important; width: 40px; height: 40px; padding: 0 !important;
+        z-index: 60 !important; border-radius: 12px !important;
+        background: rgba(255,255,255,.05) !important; border: 1px solid rgba(255,255,255,.08) !important;
+        -webkit-tap-highlight-color: transparent;
+    }
+    .mobile-toggle svg { stroke: #fff; }
+    .mobile-toggle:active { background: rgba(0,255,255,.12) !important; }
+
+    .main-content { margin-left: 0 !important; padding: 72px 1rem calc(2rem + env(safe-area-inset-bottom)) !important; }
+    .page-header { padding-bottom: 1rem !important; margin-bottom: 1.25rem !important; }
+    .page-header h1 { font-size: 1.25rem !important; }
+
+    /* ---------- sidebar drawer ---------- */
+    .sidebar { width: min(84vw, 300px) !important; z-index: 70 !important; padding-top: env(safe-area-inset-top); overscroll-behavior: contain; }
+    .overlay { z-index: 65 !important; }
+    .sidebar .nav-item { padding: .7rem .85rem !important; font-size: .88rem !important; min-height: 44px; }
+    .sidebar .nav-dropdown .nav-item { font-size: .82rem !important; }
+    .sidebar-nav { -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+
+    /* ---------- stat cards: compact 2-up ---------- */
+    .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: .6rem !important; margin-bottom: 1.25rem !important; }
+    .stat-card { padding: .85rem !important; border-radius: 12px !important; min-width: 0; }
+    .stat-card .stat-label { font-size: .58rem !important; line-height: 1.3; }
+    .stat-card .stat-value { font-size: 1.15rem !important; overflow-wrap: anywhere; }
+
+    /* ---------- cards / headers ---------- */
+    .glass-card { padding: 1rem !important; border-radius: 14px !important; margin-bottom: 1rem !important; }
+    .card-header { margin-bottom: .85rem !important; }
+    .grid-2col, .two-col, .dashboard-grid { grid-template-columns: 1fr !important; }
+
+    .page-header { flex-direction: column !important; align-items: stretch !important; gap: .75rem !important; }
+    .page-header .header-actions, .header-actions { width: 100% !important; display: flex; flex-wrap: wrap; gap: .5rem; }
+    .page-header .header-actions .btn, .header-actions .btn { flex: 1 1 calc(50% - .5rem); justify-content: center; }
+    .page-header .header-actions .btn:only-child, .header-actions .btn:only-child { flex-basis: 100%; }
+
+    /* ---------- buttons / inputs: comfortable touch targets ---------- */
+    .btn { min-height: 42px; justify-content: center; -webkit-tap-highlight-color: transparent; }
+    .btn-sm { min-height: 38px; }
+    input, select, textarea, .form-input, .form-select, .form-textarea { font-size: 16px !important; } /* stops iOS zoom-on-focus */
+    input[type="text"], input[type="number"], input[type="date"], input[type="time"], input[type="email"], input[type="password"], input[type="search"], select, .form-input, .form-select { min-height: 44px; }
+
+    /* ---------- filter / search bars stack ---------- */
+    .search-wrapper, .filter-bar, .filters, .toolbar { flex-direction: column !important; align-items: stretch !important; gap: .6rem !important; }
+    .search-wrapper > *, .filter-bar > *, .filters > *, .toolbar > * { width: 100% !important; min-width: 0 !important; max-width: none !important; }
+    .search-wrapper .search-input { min-width: 0 !important; }
+    .filter-select { width: 100% !important; min-width: 0 !important; }
+    .filter-divider { display: none !important; }
+    .form-row, .form-grid, .grid-2 { grid-template-columns: 1fr !important; }
+
+    /* ---------- messages / pagination ---------- */
+    .message { font-size: .82rem !important; }
+    .pagination-wrap { flex-direction: column !important; align-items: stretch !important; gap: .6rem; }
+    .pagination-controls { justify-content: center !important; flex-wrap: wrap; }
+
+    /* ---------- modals -> bottom sheets ---------- */
+    .modal-overlay { align-items: flex-end !important; padding: 0 !important; }
+    .modal-overlay .modal {
+        width: 100% !important; max-width: none !important; max-height: 92dvh; max-height: 92vh;
+        border-radius: 20px 20px 0 0 !important; padding: 1.1rem 1rem calc(1rem + env(safe-area-inset-bottom)) !important;
+        border-bottom: 0 !important; animation: m-sheet .28s cubic-bezier(.2,.9,.3,1) both;
+        overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
+    }
+    .modal-overlay .modal::before { content: ""; display: block; width: 38px; height: 4px; border-radius: 4px; background: rgba(255,255,255,.14); margin: -.35rem auto .85rem; }
+    .modal-header { margin-bottom: 1rem !important; padding-bottom: .75rem !important; }
+    .modal-close { width: 40px !important; height: 40px !important; flex: none; }
+    .modal-footer { position: sticky; bottom: calc(-1rem - env(safe-area-inset-bottom)); background: rgba(20,20,30,.98); margin: 0 -1rem -1rem; padding: .75rem 1rem calc(.75rem + env(safe-area-inset-bottom)) !important; flex-direction: column-reverse; gap: .5rem !important; z-index: 2; }
+    .modal-footer .btn { width: 100%; }
+    .modal-body .form-group, .modal .form-group { margin-bottom: 1rem !important; }
+    @keyframes m-sheet { from { transform: translateY(40px); opacity: 0; } to { transform: none; opacity: 1; } }
+
+    /* ---------- tables ---------- */
+    .table-container { margin: 0 !important; -webkit-overflow-scrolling: touch; }
+    table { font-size: .85rem; }
+
+    /* tables the script could NOT turn into cards: keep a tidy horizontal scroller */
+    .table-container:not(.m-cards-wrap) { overflow-x: auto; border-radius: 10px; }
+    .table-container:not(.m-cards-wrap) table { min-width: 640px; }
+    .table-container:not(.m-cards-wrap) th, .table-container:not(.m-cards-wrap) td { white-space: nowrap; }
+    .table-container:not(.m-cards-wrap) td:first-child, .table-container:not(.m-cards-wrap) th:first-child { position: sticky; left: 0; background: #0d0d14; z-index: 1; }
+
+    /* ---------- tables -> stacked cards ---------- */
+    table.m-cards, table.m-cards tbody, table.m-cards tfoot { display: block; width: 100%; min-width: 0 !important; }
+    table.m-cards thead { display: none; }
+    table.m-cards tr {
+        display: grid; grid-template-columns: 1fr 1fr; column-gap: .75rem; row-gap: .1rem;
+        padding: .85rem .9rem; margin-bottom: .7rem;
+        background: rgba(255,255,255,.025); border: 1px solid rgba(255,255,255,.06); border-radius: 14px;
+        break-inside: avoid;
+    }
+    table.m-cards tbody tr:hover td { background: transparent !important; }
+    table.m-cards td {
+        display: block; padding: .4rem 0 !important; border: 0 !important; background: transparent !important;
+        text-align: left !important; white-space: normal !important; min-width: 0; overflow-wrap: anywhere;
+        font-size: .85rem !important; position: static !important;
+    }
+    table.m-cards td[data-label]::before {
+        content: attr(data-label); display: block; margin-bottom: .1rem;
+        font-size: .58rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: rgba(255,255,255,.28);
+    }
+    /* the first cell (employee / name) is the card title: full width, no label */
+    table.m-cards td.m-title-cell { grid-column: 1 / -1; padding-bottom: .55rem !important; margin-bottom: .25rem; border-bottom: 1px solid rgba(255,255,255,.05) !important; font-size: .95rem !important; }
+    table.m-cards td.m-title-cell::before { display: none; }
+    /* long text / actions use the full row */
+    table.m-cards td.m-wide { grid-column: 1 / -1; }
+    table.m-cards td.m-hide { display: none !important; }       /* row numbers (#) */
+    table.m-cards td.m-actions { grid-column: 1 / -1; padding-top: .6rem !important; margin-top: .25rem; border-top: 1px solid rgba(255,255,255,.05) !important; }
+    table.m-cards td.m-actions::before { display: none; }
+    table.m-cards td.m-actions .actions-cell, table.m-cards td.m-actions > div { display: flex; flex-wrap: wrap; gap: .5rem; justify-content: stretch !important; }
+    table.m-cards td.m-actions .btn, table.m-cards td.m-actions button, table.m-cards td.m-actions a { flex: 1 1 0; min-height: 40px; justify-content: center; }
+    table.m-cards .reason-cell { max-width: none !important; white-space: normal !important; }
+    table.m-cards .employee-info, table.m-cards .emp-cell { gap: .6rem; }
+
+    /* summary rows (colspan): totals, empty states, "nothing follows" */
+    table.m-cards tr.m-full-row { grid-template-columns: 1fr; background: rgba(0,255,255,.04); border-color: rgba(0,255,255,.12); }
+    table.m-cards tr.m-full-row td { grid-column: 1 / -1; text-align: right !important; }
+    table.m-cards tr.m-full-row td:empty { display: none; }
+}
+
+/* very small phones */
+@media (max-width: 380px) {
+    .stat-card .stat-value { font-size: 1rem !important; }
+    table.m-cards tr { grid-template-columns: 1fr; }
+    .page-header .header-actions .btn, .header-actions .btn { flex-basis: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .modal-overlay .modal { animation: none !important; }
+}

@@ -1,0 +1,76 @@
+[2026-08-10 06:55:57] [warning] [::1] Invalid CSRF token detected
+[2026-08-10 06:56:11] [info] [::1] Employee created: asdasd sd
+[2026-08-10 06:56:13] [warning] [::1] Invalid CSRF token detected
+[2026-08-10 06:56:17] [warning] [::1] Invalid CSRF token detected
+[2026-08-10 07:32:32] [info] [::1] Cash advance created: Employee ID=2, Amount=1212
+[2026-08-10 07:32:48] [info] [::1] Cash advance updated: ID=1
+[2026-08-10 07:34:34] [info] [::1] Cash advance updated: ID=1
+[2026-08-10 07:34:48] [info] [::1] Cash advance created: Employee ID=1, Amount=12121
+[2026-08-10 07:35:03] [info] [::1] Cash advance deleted: ID=2
+[2026-08-10 07:35:06] [info] [::1] Cash advance deleted: ID=1
+[2026-08-10 08:40:07] [info] [::1] Employee updated: ID=2, Cha 123.
+[2026-08-10 08:40:19] [info] [::1] Employee updated: ID=2, Cha 15
+[2026-08-10 10:09:32] [info] [::1] Employee deleted: ID=2, Cha 15
+[2026-08-10 10:10:06] [info] [::1] Cash advance created: Employee ID=3, Amount=1212
+[2026-08-10 10:12:17] [info] [::1] Cash advance updated: ID=3
+[2026-08-10 10:14:39] [info] [::1] Cash advance created: Employee ID=3, Amount=121212
+[2026-08-10 10:16:34] [info] [::1] Cash advance updated: ID=3
+[2026-08-10 10:17:10] [info] [::1] Cash advance created: Employee ID=3, Amount=1
+[2026-08-10 10:17:27] [info] [::1] Cash advance updated: ID=5
+[2026-08-10 10:18:04] [info] [::1] Cash advance updated: ID=5
+[2026-08-11 02:24:10] [info] [::1] Cash advance deleted: ID=3
+[2026-08-11 02:24:12] [info] [::1] Cash advance deleted: ID=4
+[2026-08-11 02:24:14] [info] [::1] Cash advance deleted: ID=5
+[2026-08-11 02:27:07] [info] [::1] Employee created: russ sel
+[2026-08-11 02:27:29] [info] [::1] Cash advance created: Employee ID=4, Amount=1000
+[2026-08-11 02:27:42] [info] [::1] Cash advance updated: ID=6
+[2026-08-11 02:27:44] [info] [::1] Cash advance updated: ID=6
+[2026-08-11 02:29:59] [info] [::1] Cash advance updated: ID=6
+[2026-08-11 02:30:13] [info] [::1] Cash advance updated: ID=6
+[2026-08-11 02:30:17] [info] [::1] Cash advance updated: ID=6
+[2026-08-11 02:30:26] [warning] [::1] Rate limit exceeded for action: update
+[2026-08-11 02:30:30] [warning] [::1] Rate limit exceeded for action: update
+[2026-08-11 02:30:32] [warning] [::1] Rate limit exceeded for action: update
+[2026-08-11 02:30:35] [warning] [::1] Rate limit exceeded for action: update
+[2026-08-11 02:34:08] [info] [::1] Cash advance updated: ID=6
+[2026-08-11 02:34:15] [info] [::1] Cash advance updated: ID=6
+[2026-08-11 02:44:54] [info] [::1] Cash advance updated: ID=6
+[2026-08-11 02:46:01] [info] [::1] Deduction saved: Employee ID=1, Amount=2185
+[2026-08-11 02:46:06] [info] [::1] Deduction saved: Employee ID=1, Amount=2185
+[2026-08-11 02:46:16] [info] [::1] Deduction saved: Employee ID=3, Amount=447.7
+[2026-08-11 02:46:43] [info] [::1] Deduction saved: Employee ID=4, Amount=1515
+[2026-08-11 02:49:59] [info] [::1] Deduction saved: Employee ID=4, Amount=1515
+[2026-08-11 02:50:34] [info] [::1] Deduction saved: Employee ID=1, Amount=2185
+[2026-08-11 02:50:38] [info] [::1] Deduction saved: Employee ID=1, Amount=2185
+[2026-08-11 02:54:00] [info] [::1] Deduction saved: Employee ID=1, Amount=2185
+[2026-08-11 03:01:40] [info] [::1] Deduction saved: Employee ID=1, Amount=2185
+[2026-08-11 03:10:56] [info] [::1] Deduction saved: Employee ID=1, Amount=2185
+[2026-08-11 03:11:03] [info] [::1] Deduction deleted: ID=11
+[2026-08-11 03:11:05] [info] [::1] Deduction deleted: ID=10
+[2026-08-11 03:11:08] [info] [::1] Deduction deleted: ID=9
+[2026-08-11 03:11:11] [info] [::1] Deduction deleted: ID=1
+[2026-08-11 03:11:14] [info] [::1] Deduction deleted: ID=2
+[2026-08-11 03:11:16] [info] [::1] Deduction deleted: ID=2
+[2026-08-11 03:11:20] [info] [::1] Deduction deleted: ID=6
+[2026-08-11 03:11:23] [info] [::1] Deduction deleted: ID=7
+[2026-08-11 03:11:25] [info] [::1] Deduction deleted: ID=8
+[2026-08-11 03:11:27] [info] [::1] Deduction deleted: ID=5
+[2026-08-11 03:11:29] [info] [::1] Deduction deleted: ID=3
+[2026-08-11 03:11:31] [info] [::1] Deduction deleted: ID=4
+[2026-08-11 03:17:08] [info] [::1] Deduction saved: Employee ID=3, Amount=447.7
+[2026-08-11 03:27:14] [info] [::1] Deduction saved: Employee ID=3, Amount=447.7
+[2026-08-11 03:27:21] [info] [::1] Deduction deleted: ID=13
+[2026-08-11 03:30:54] [info] [::1] Deduction deleted: ID=13
+[2026-08-11 03:34:01] [info] [::1] Deduction deleted: ID=13
+[2026-08-11 03:34:09] [info] [::1] Deduction deleted: ID=13
+[2026-08-11 08:39:05] [info] [::1] Deduction saved: Employee ID=4, Amount=1515
+[2026-08-22 05:13:41] [info] [::1] Employee updated: ID=4, russ sel
+[2026-08-22 05:31:41] [info] [::1] Cash advance updated: ID=6
+[2026-08-22 05:32:01] [info] [::1] Employee updated: ID=4, russ sel
+[2026-08-22 09:08:45] [info] [::1] Employee created: Cha Chang
+ [2026-10-09 08:14:07] [info] [::1] Login OK: admin
+[2026-10-09 08:14:41] [info] [::1] Session ended: login page opened while logged in (user: admin)
+[2026-10-09 08:14:42] [info] [::1] Login OK: admin
+[2026-10-09 08:15:00] [info] [::1] Login OK: admin
+[2026-10-09 08:15:37] [warning] [::1] Blocked access without login: /final/views/admin/bonus.php
+[2026-10-09 08:15:39] [info] [::1] Login OK: admin

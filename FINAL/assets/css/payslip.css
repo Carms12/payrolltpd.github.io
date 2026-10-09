@@ -1,0 +1,40 @@
+/* Portrait LETTER sheet (8.5in x 11in) holding two half-bond payslips (8.5in x 5.5in each).
+   One employee = one payslip on the top half; the bottom half stays blank. */
+@page { size: 8.5in 11in; margin: 0; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #e9edf3; font-family: Arial, Helvetica, sans-serif; color: #1b2538; font-size: 10px; }
+.sheet { width: 8.5in; height: 10.98in; margin: 12px auto; background: #fff; box-shadow: 0 2px 12px rgba(0,0,0,.15); overflow: hidden; page-break-after: always; break-after: page; }
+.sheet:last-of-type { page-break-after: auto; break-after: auto; }
+.payslip { width: 8.5in; height: 5.5in; background: #fff; padding: 0.28in 0.35in; overflow: hidden; display: flex; flex-direction: column; }
+.payslip + .payslip { border-top: 1px dashed #9aa6b8; }   /* cut line between the two halves */
+.company-header { display: flex; align-items: center; gap: 12px; padding-bottom: 5px; border-bottom: 2px solid #1f3a64; }
+.company-logo img { height: 40px; width: auto; display: block; }
+.company-left { flex: 1; text-align: center; }
+.company-name { font-size: 13px; font-weight: 800; letter-spacing: .04em; color: #1f3a64; }
+.company-address { font-size: 8px; color: #3a475b; margin-top: 2px; }
+.slip-title-row { display: flex; justify-content: space-between; align-items: baseline; margin: 7px 0 5px; }
+.slip-title { font-size: 15px; font-weight: 800; letter-spacing: .3em; color: #1f3a64; }
+.slip-period { font-size: 10px; color: #3a475b; }
+table { width: 100%; border-collapse: collapse; }
+.info-wrap { display: flex; gap: 8px; align-items: stretch; }
+.info-wrap .info { flex: 1; }
+.emp-photo-box { width: 21mm; flex-shrink: 0; border: 1px solid #c9d3e0; background: #f1f4f9; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.emp-photo-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.emp-photo-box .initials { font-size: 22px; font-weight: 800; color: #1f3a64; }
+.info td { padding: 3px 6px; border: 1px solid #c9d3e0; }
+.info td.k { background: #f1f4f9; color: #5b6b80; width: 17%; font-weight: 600; }
+.cols { display: flex; gap: 8px; margin-top: 7px; }
+.col { flex: 1; }
+.box-title { background: #1f3a64; color: #fff; font-weight: 700; font-size: 9px; letter-spacing: .08em; padding: 3px 7px; }
+.amt td { padding: 3px 7px; border-bottom: 1px solid #e3e8f0; }
+.amt .r { text-align: right; }
+.amt tr.sub td { font-weight: 800; background: #f1f4f9; border-top: 1px solid #1f3a64; }
+.net-row { display: flex; justify-content: space-between; margin-top: 8px; padding: 6px 10px; border: 2px solid #1f3a64; font-size: 14px; font-weight: 800; color: #1f3a64; background: #f1f4f9; }
+.sign-row { display: flex; gap: 40px; margin-top: auto; padding-top: 22px; }
+.sign { flex: 1; text-align: center; font-size: 9px; color: #5b6b80; }
+.sign .line { border-top: 1px solid #1b2538; margin-bottom: 3px; }
+.no-slip { max-width: 600px; margin: 40px auto; padding: 24px; background: #fff; text-align: center; border: 1px solid #c9d3e0; }
+@media print {
+    body { background: #fff; }
+    .sheet { margin: 0; box-shadow: none; }
+}
